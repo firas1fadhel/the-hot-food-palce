@@ -1,17 +1,19 @@
 var express= require("express");
 var bodyParser = require("body-parser");
+var path = require("path");
 var app =  express();
 var path = require(path);
 
 var PORT = 3000;
 
-app.get('/', function (req, res) {
- res.send('Welcome to hot-restaurant!')
-})
+// app.get('/', function (req, res) {
+//  res.send('Welcome to hot-restaurant!')
+// })
 
 app.listen(3000, function () {
  console.log('Hot-restaurant!')
 });
+
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -23,6 +25,7 @@ app.get("/reservation", function(req, res) {
 app.get("/table", function(req, res) {
   res.sendFile(path.join(__dirname, "list.html"));
 });
+<<<<<<< HEAD
 
 // Get all customers
 // app.get("/data", function(req, res) {
@@ -35,6 +38,20 @@ app.get("/table", function(req, res) {
 //   if (chosen) {
 //     console.log(chosen);
 
+=======
+//
+// // Get all customers
+// app.get("/data", function(req, res) {
+//   res.json(customers);
+// });
+//
+// app.get("/api/:customers?", function(req, res) {
+//   var chosen = req.params.customers;
+//
+//   if (chosen) {
+//     console.log(chosen);
+//
+>>>>>>> cfd7f4d143f7b4a14e955956cad97199f9063238
 //     for (var i = 0; i < customers.length; i++) {
 //       if (chosen === customers[i].routeName) {
 //         return res.json(customers[i]);
@@ -44,16 +61,28 @@ app.get("/table", function(req, res) {
 //   }
 //   return res.json(customers);
 // });
+<<<<<<< HEAD
 
+=======
+//
+>>>>>>> cfd7f4d143f7b4a14e955956cad97199f9063238
 // // Create New Characters - takes in JSON input
 // app.post("/api/new", function(req, res) {
 //   var newcustomer = req.body;
 //   newcustomer.routeName = newcustomer.name.replace(/\s+/g, "").toLowerCase();
+<<<<<<< HEAD
 
 //   console.log(newcustomer);
 
 //   characters.push(newcustomer);
 
+=======
+//
+//   console.log(newcustomer);
+//
+//   characters.push(newcustomer);
+//
+>>>>>>> cfd7f4d143f7b4a14e955956cad97199f9063238
 //   res.json(newcustomer);
 // });
 var customer = [{
@@ -62,8 +91,8 @@ var customer = [{
   phone: " ",
   email: " ",
   uniqueID: " "}]
-
-// app.use(bodyParser.urlencoded({ extended: false }));
+//
+// // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
 
 // app.get('/',function(req,res){
