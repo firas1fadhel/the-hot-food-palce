@@ -13,9 +13,7 @@ var customer = [{
   email: " ",
   uniqueID: " "}];
 
-// app.get('/', function (req, res) {
-//  res.send('Welcome to hot-restaurant!')
-// })
+
 
 app.listen(3000, function () {
  console.log('Hot-restaurant!')
