@@ -5,16 +5,6 @@ var app =  express();
 
 var PORT = 3000;
 
-
-var customer = [{
-  routeName: " ",
-  name: " ",
-  phone: " ",
-  email: " ",
-  uniqueID: " "}];
-
-
-
 app.listen(3000, function () {
  console.log('Hot-restaurant!')
 });
@@ -30,6 +20,31 @@ app.get("/reservation", function(req, res) {
 app.get("/table", function(req, res) {
   res.sendFile(path.join(__dirname, "list.html"));
 });
+
+
+var mysql = require("mysql");
+
+var connection = mysql.createConnection({
+  host: "localhost",
+  port: 3000,
+
+ // Your username
+  user: "root",
+
+ // Your password
+  password: "MyNewPass",
+  database: "peoplez"
+});
+
+connection.connect(function(err) {
+  if (err) throw err;
+  //or create a function to show the data or something;
+});
+
+
+
+
+
 //
 // // Get all customers
 // app.get("/data", function(req, res) {
