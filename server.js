@@ -1,25 +1,29 @@
-var darthmaul = {
-    name: "Darth Maul",
-    role: "Sith Apprentice",
-    age: 200,
-    forcePoints: 1200
-  };
-  var characters = [{
-    routeName: "yoda",
-    name: "Yoda",
-    role: "Jedi Master",
-    age: 900,
-    forcePoints: 2000
-  }, {
-    routeName: "darthmaul",
-    name: "Darth Maul",
-    role: "Sith Lord",
-    age: 200,
-    forcePoints: 1200
-  }, {
-    routeName: "obiwankenobi",
-    name: "Obi Wan Kenobi",
-    role: "Jedi Master",
-    age: 55,
-    forcePoints: 1350
-  }];
+var express= require("express");
+var bodyParser = require("body-parser");
+var app =  express();
+
+var PORT = 3000;
+
+app.get('/', function (req, res) {
+ res.send('Welcome to hot-restaurant!')
+})
+
+app.listen(3000, function () {
+ console.log('Hot-restaurant!')
+})
+
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+
+// app.get('/',function(req,res){
+//   res.sendfile("index.html");
+// });
+// app.post('/login',function(req,res){
+//   var user_name=req.body.user;
+//   var password=req.body.password;
+//   console.log("User name = "+user_name+", password is "+password);
+//   res.end("yes");
+// });
+// app.listen(3000,function(){
+//   console.log("Started on PORT 3000");
+// });
