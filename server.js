@@ -5,6 +5,14 @@ var app =  express();
 
 var PORT = 3000;
 
+
+var customer = [{
+  routeName: " ",
+  name: " ",
+  phone: " ",
+  email: " ",
+  uniqueID: " "}];
+
 // app.get('/', function (req, res) {
 //  res.send('Welcome to hot-restaurant!')
 // })
@@ -57,12 +65,7 @@ app.get("/table", function(req, res) {
 //
 //   res.json(newcustomer);
 // });
-var customer = [{
-  routeName: " ",
-  name: " ",
-  phone: " ",
-  email: " ",
-  uniqueID: " "}]
+
 //
 // // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
