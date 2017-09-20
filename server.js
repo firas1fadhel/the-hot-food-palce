@@ -6,10 +6,6 @@ var path = require("path");
 
 var PORT = 3000;
 
-// app.get('/', function (req, res) {
-//  res.send('Welcome to hot-restaurant!')
-// })
-
 app.listen(3000, function () {
  console.log('Hot-restaurant!')
 });
@@ -27,7 +23,35 @@ app.get("/table", function(req, res) {
 });
 
 
+
 // Get all customers
+
+var mysql = require("mysql");
+
+var connection = mysql.createConnection({
+  host: "localhost",
+  port: 3000,
+
+ // Your username
+  user: "root",
+
+ // Your password
+  password: "MyNewPass",
+  database: "peoplez"
+});
+
+connection.connect(function(err) {
+  if (err) throw err;
+  //or create a function to show the data or something;
+});
+
+
+
+
+
+//
+// // Get all customers
+
 // app.get("/data", function(req, res) {
 //   res.json(customers);
 // });
@@ -64,12 +88,7 @@ app.get("/table", function(req, res) {
 
 //   res.json(newcustomer);
 // });
-var customer = [{
-  routeName: " ",
-  name: " ",
-  phone: " ",
-  email: " ",
-  uniqueID: " "}]
+
 //
 // // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
