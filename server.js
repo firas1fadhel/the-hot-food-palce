@@ -10,7 +10,57 @@ app.get('/', function (req, res) {
 
 app.listen(3000, function () {
  console.log('Hot-restaurant!')
-})
+});
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.get("/reservation", function(req, res) {
+  res.sendFile(path.join(__dirname, "reservation.html"));
+});
+
+app.get("/table", function(req, res) {
+  res.sendFile(path.join(__dirname, "table.html"));
+});
+
+// Get all customers
+app.get("/data", function(req, res) {
+  res.json(customers);
+});
+
+app.get("/api/:customers?", function(req, res) {
+  var chosen = req.params.customers;
+
+  if (chosen) {
+    console.log(chosen);
+
+    for (var i = 0; i < customers.length; i++) {
+      if (chosen === customers[i].routeName) {
+        return res.json(customers[i]);
+      }
+    }
+    return res.json(false);
+  }
+  return res.json(customers);
+});
+
+// Create New Characters - takes in JSON input
+app.post("/api/new", function(req, res) {
+  var newcustomer = req.body;
+  newcustomer.routeName = newcustomer.name.replace(/\s+/g, "").toLowerCase();
+
+  console.log(newcustomer);
+
+  characters.push(newcustomer);
+
+  res.json(newcustomer);
+});
+var customer = [{
+  routeName: " ",
+  name: " ",
+  phone: " ",
+  email: " ",
+  uniqueID: " "}]
 
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
