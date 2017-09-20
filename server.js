@@ -1,6 +1,7 @@
 var express= require("express");
 var bodyParser = require("body-parser");
 var app =  express();
+var path = require(path);
 
 var PORT = 3000;
 
@@ -20,41 +21,41 @@ app.get("/reservation", function(req, res) {
 });
 
 app.get("/table", function(req, res) {
-  res.sendFile(path.join(__dirname, "table.html"));
+  res.sendFile(path.join(__dirname, "list.html"));
 });
 
 // Get all customers
-app.get("/data", function(req, res) {
-  res.json(customers);
-});
+// app.get("/data", function(req, res) {
+//   res.json(customers);
+// });
 
-app.get("/api/:customers?", function(req, res) {
-  var chosen = req.params.customers;
+// app.get("/api/:customers?", function(req, res) {
+//   var chosen = req.params.customers;
 
-  if (chosen) {
-    console.log(chosen);
+//   if (chosen) {
+//     console.log(chosen);
 
-    for (var i = 0; i < customers.length; i++) {
-      if (chosen === customers[i].routeName) {
-        return res.json(customers[i]);
-      }
-    }
-    return res.json(false);
-  }
-  return res.json(customers);
-});
+//     for (var i = 0; i < customers.length; i++) {
+//       if (chosen === customers[i].routeName) {
+//         return res.json(customers[i]);
+//       }
+//     }
+//     return res.json(false);
+//   }
+//   return res.json(customers);
+// });
 
-// Create New Characters - takes in JSON input
-app.post("/api/new", function(req, res) {
-  var newcustomer = req.body;
-  newcustomer.routeName = newcustomer.name.replace(/\s+/g, "").toLowerCase();
+// // Create New Characters - takes in JSON input
+// app.post("/api/new", function(req, res) {
+//   var newcustomer = req.body;
+//   newcustomer.routeName = newcustomer.name.replace(/\s+/g, "").toLowerCase();
 
-  console.log(newcustomer);
+//   console.log(newcustomer);
 
-  characters.push(newcustomer);
+//   characters.push(newcustomer);
 
-  res.json(newcustomer);
-});
+//   res.json(newcustomer);
+// });
 var customer = [{
   routeName: " ",
   name: " ",
